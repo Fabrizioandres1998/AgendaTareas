@@ -1,14 +1,26 @@
+const input = document.getElementById("tareaInput");
+const lista = document.getElementById("listaTareas");
+let array = [];
 
-const listaTareas = getElementById("listaTareas")
-const listaElemento = document.createElement("li")
-const checkbox = document.createElement("input")
-checkbox.type = "checkbox"
+input.addEventListener("keydown", function(event) {
+    if (event.code === "Enter") {
+        let tarea = input.value;
+        const li = document.createElement('li');
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        const textoTarea = document.createTextNode(tarea);
 
-listaTareas.appenChild(listaElemento)
-listaElemento.appendChild(checkbox)
+        li.appendChild(checkbox);
+        li.appendChild(textoTarea);
+        lista.appendChild(li);
 
-//LO QUE QUIERO HACE ES QUE CUANDO ESCRIBA Y PRESIONE ENTER SE AGREGUE UN LI CHECKBOX A UL
+        checkbox.addEventListener("change", function() {
+            let estado = checkbox.checked ? "Terminada" : "No terminada";
+            array.push({ "Tarea: ": tarea, "Estado": estado });
+            console.log(array);
+        });
 
-function agregarString() {
-    const tareaInput = getElementById("tareaInput").value
-}
+        input.value = "";
+    }
+});
+console.log(array)
