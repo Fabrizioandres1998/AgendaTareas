@@ -10,6 +10,8 @@ input.addEventListener("keydown", function (event) {
         const li = document.createElement('li')
         const checkbox = document.createElement("input")
         checkbox.type = "checkbox"
+        const button = document.createElement("button")
+        button.innerText = "Quitar"
         const textoTarea = document.createTextNode(tarea)
 
         checkbox.addEventListener("change", function () {
@@ -26,6 +28,7 @@ input.addEventListener("keydown", function (event) {
 
         li.appendChild(checkbox)
         li.appendChild(textoTarea)
+        li.appendChild(button)
         lista.appendChild(li)
 
         input.value = ""
